@@ -5,4 +5,4 @@ from .models import Market
 def index(request):
     markets = Market.objects.all()
     print(markets)
-    return render(request, "polls/index.html", context)
+    return render(request, "play/index.html", context={'markets': markets})
