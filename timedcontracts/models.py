@@ -9,12 +9,12 @@ class Market(models.Model):
         return f'{self.name} - {self.ticker}'
     
 class Contract(models.Model):
-    contract_type = models.CharField(max_length=100)
+    contract_type = models.CharField(max_length=100, choices=[('LONG', "SHORT")])
     market = models.ForeignKey(Market, on_delete=models.CASCADE)
     size = models.FloatField()
     date_open = models.DateTimeField(auto_now_add=True)
     date_close = models.DateTimeField(null=True)
-    status = models.CharField(max_length=100)
+    status = models.CharField(max_length=100, default='OPEN')
     result = models.FloatField(null=True)
 
     def __str__(self):

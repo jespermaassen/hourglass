@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # User defined
     'timedcontracts.apps.TimedcontractsConfig',
+    'playground.apps.PlaygroundConfig',
     'rest_framework',
 ]
 
