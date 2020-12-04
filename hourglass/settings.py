@@ -35,13 +35,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'timedcontracts.apps.TimedcontractsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # User defined
+    'timedcontracts.apps.TimedcontractsConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
