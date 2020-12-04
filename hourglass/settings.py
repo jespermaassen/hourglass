@@ -12,16 +12,19 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Load local .env file
+load_dotenv(dotenv_path=f'{BASE_DIR}/.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ic)be400ntw0#@e#guogde8at@#&5owoqs=4l@=sm)gnt%b+ly'
+SECRET_KEY = os.getenv("secret_key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -78,11 +81,11 @@ WSGI_APPLICATION = 'hourglass.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hourglass',
-        'USER': 'postgres',
-        'PASSWORD': 'pgpg',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.getenv('pg_dbname'),
+        'USER': os.getenv('pg_username'),
+        'PASSWORD': os.getenv('pg_password'),
+        'HOST': os.getenv('pg_host'),
+        'PORT': os.getenv('pg_port'),
     }
 }
 
