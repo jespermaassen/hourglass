@@ -39,8 +39,7 @@ def createContract(request):
 
     if serializer.is_valid():
         serializer.save()
-
-    
+ 
     return Response(serializer.data)
 
 @api_view(['POST', "GET"])
@@ -52,7 +51,6 @@ def updateContract(request, pk):
     if serializer.is_valid():
         serializer.save()
 
-    
     return Response(serializer.data)
 
 @api_view(['DELETE'])
@@ -60,5 +58,4 @@ def deleteContract(request, pk):
     contract = Contract.objects.get(id=pk)
     contract.delete()
 
-    
     return Response(f'{contract} deleted')
